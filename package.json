@@ -1,8 +1,14 @@
 {
-    "scripts": {
-      "start": "node projet_immo.js",
-      "dev": "browser-refresh projet_immo.js"
-    },
+  "name": "agence_immo",
+  "version": "1.0.0",
+  "description": "Exercice agence Immo avec MySQL",
+  "main": "projet_immo.js",
+  "scripts": {
+    "start": "node projet_immo.js",
+    "watch": "browser-refresh projet_immo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vincent Chiofalo",
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
