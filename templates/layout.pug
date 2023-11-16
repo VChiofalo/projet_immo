@@ -1,0 +1,21 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Agence Immo
+    body 
+        block header 
+            nav(class="flex spaceAround") 
+                a(href="/") 
+                    img(src="assets/img/logo.png", alt="logo agence immo")
+                ul(class="flex spaceAround") 
+                    li
+                        a(href="/") Accueil
+                    li
+                        a(href="#") Inscription
+                    li
+                        a(href="#") Test
+        block main 
+        block footer
+    script(src=process.env.BROWSER_REFRESH_URL)

@@ -1,13 +1,5 @@
-doctype html
-html(lang="fr")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Accueil
-    body 
-        block header
-            include layouts/layout
-        main 
-            h1 Accueil 
-            P Hello World
-    script(src=process.env.BROWSER_REFRESH_URL)
+include layout 
+
+block main 
+    h1 Accueil 
+    p Hello World !!
