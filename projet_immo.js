@@ -9,7 +9,7 @@ app.set('views', path.join(__dirname, 'templates'));
 app.set('view engine', 'pug');
 
 app.get('/', function (req, res) {
-    res.send('Hello World');
+    res.render('index');
 });
 
 app.listen(process.env.PORT, ()=>{
