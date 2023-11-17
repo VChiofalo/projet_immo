@@ -1,0 +1,18 @@
+extends layout 
+block append main 
+    div(class="container")
+        h2 Inscription 
+        form(action="/register" method="post") 
+            div(class="flex column")  
+                label(for="lastName") Nom
+                input(type="text", name="lastName" placeholder="Exemple : Dupont")
+            div(class="flex column")  
+                label(for="firstName") Prénom 
+                input(type="text", name="firstName" placeholder="Exemple : Martin")
+            div(class="flex column")  
+                label(for="email") E-mail
+                input(type="email", name="email" placeholder="Exemple : dupont.martin@email.fr")
+            div(class="flex column")      
+                label(for="password") Mot de passe
+                input(type="password", name="password" placeholder="6 caractères minimum")
+            button(type="submit", class="flex center") S'inscrire

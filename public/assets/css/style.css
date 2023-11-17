@@ -1,0 +1,112 @@
+/* FLEX */
+
+.flex{
+    display: flex;
+}
+
+.spaceAround{
+    align-items: center;
+    justify-content: space-around;
+}
+
+.spaceBetween{
+    align-items: center;
+    justify-content: space-between;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+.column{
+    flex-direction: column;
+}
+
+/* GENERAL */
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+/* HEADER */
+
+header{
+    position: fixed;
+    width: 100%;
+}
+
+#logo img{
+    width: 120px;
+}
+
+header nav ul{
+    width: 30%;
+}
+
+nav{
+    background-color: #EBE6E4;
+    position: fixed;
+    width: 100%;
+}
+
+nav ul a{
+    color: black;
+    
+}
+
+nav ul a:hover{
+    color: white;
+    
+}
+
+/* MAIN */
+
+h1{
+    text-align: center;
+    margin: 0;
+    padding: 300px 0 190px 0; 
+    font-size: 5em;
+    text-transform: uppercase;
+}
+
+h2{
+    text-align: center;
+    font-size: 3em;
+}
+
+.titre{
+    background: url(../img/immeuble.jpg) no-repeat center / cover;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+form{
+    width: 60%;
+    margin: 0 auto;
+}
+
+form div, form button{
+    margin: 20px 0;
+}
+
+form button{
+    margin: 20px auto;
+    border: 1px solid #EBE6E4;
+    width: 200px;
+    height: 50px;
+    background-color: #EBE6E4;
+}
+
+form button:hover{
+    border: 1px solid black;
+    background-color: black;
+    color: #EBE6E4;
+}

@@ -3,4 +3,9 @@ module.exports= (app /* ajout du param app */ ) => {
         let homeController = require('../src/controllers/HomeController.js');
         homeController.index(req, res);
     });
+
+    app.get('/register', (req, res) => {
+        let registerController = require('../src/controllers/RegisterController.js');
+        registerController.index(req, res);
+    });
 };

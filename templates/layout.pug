@@ -6,18 +6,26 @@ html(lang="fr")
         title Agence Immo
 
         block stylesheet
+        link(rel="stylesheet", href="assets/css/normalize.css")
+        link(rel="stylesheet", href="assets/css/style.css")
     body 
-        block header 
-            nav(class="flex spaceAround") 
-                a(href="/") 
-                    img(src="assets/img/logo.png", alt="logo agence immo")
-                ul(class="flex spaceAround") 
-                    li
-                        a(href="/") Accueil
-                    li
-                        a(href="#") Inscription
-                    li
-                        a(href="#") Test
+        block header  
+            header 
+                nav(class="flex spaceBetween") 
+                    a(href="/" id="logo") 
+                        img(src="/assets/img/logo.png", alt="logo immoneuf")
+                    ul(class="flex spaceAround") 
+                        li
+                            a(href="/") Accueil
+                        li
+                            a(href="/register") Inscription
+                        li
+                            a(href="#") Test
+                        li
+                            a(href="#") Test                                                
         block main 
+            main 
+                div(class="titre")
+                    h1 Immoneuf 
         block footer
     script(src=process.env.BROWSER_REFRESH_URL)
