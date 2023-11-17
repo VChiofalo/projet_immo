@@ -4,15 +4,26 @@ block append main
         h2 Inscription 
         form(action="/register" method="post") 
             div(class="flex column")  
-                label(for="lastName") Nom
-                input(type="text", name="lastName" placeholder="Exemple : Dupont")
-            div(class="flex column")  
-                label(for="firstName") Prénom 
-                input(type="text", name="firstName" placeholder="Exemple : Martin")
-            div(class="flex column")  
                 label(for="email") E-mail
-                input(type="email", name="email" placeholder="Exemple : dupont.martin@email.fr")
+                input(type="email", name="email" placeholder="Exemple : dupont.martin@email.fr" id="email")
             div(class="flex column")      
                 label(for="password") Mot de passe
-                input(type="password", name="password" placeholder="6 caractères minimum")
+                input(type="password", name="password" placeholder="6 caractères minimum" id="password")
+            hr
+            div(class="flex column")
+                label(for="gender") Selectionnez votre genre
+                select(name="gender" id="gender")
+                    option(value="") Veillez choisir une option 
+                    option(value="male") Homme 
+                    option(value="female") Femme 
+                    option(value="non-binary") Non-binaire
+            div(class="flex column")  
+                label(for="lastName") Nom
+                input(type="text", name="lastName" placeholder="Exemple : Dupont" id="lastName")
+            div(class="flex column")  
+                label(for="firstName") Prénom 
+                input(type="text", name="firstName" placeholder="Exemple : Martin" id="firstName")
+            div(class="flex column")
+                label(for="phoneNumber") N° de téléphone
+                input(type="tel", name="phoneNumber" placeholder="0600000000" id="phoneNumber")
             button(type="submit", class="flex center") S'inscrire
