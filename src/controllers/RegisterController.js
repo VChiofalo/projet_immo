@@ -1,6 +1,6 @@
 class RegisterController {
     index(req, res){
-        res.render('register');
+        res.render('register/index');
     };
 };
 
