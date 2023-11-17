@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node projet_immo.js",
     "watch": "browser-refresh projet_immo.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migration:migrate": "node ./data/make migration"
   },
   "author": "Vincent Chiofalo",
   "dependencies": {

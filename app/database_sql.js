@@ -7,5 +7,6 @@ module.exports = mysql.createConnection({
     user: process.env.SQL_USER,
     password: process.env.SQL_PASSWORD,
     port: process.env.SQL_PORT,
-    database: process.env.SQL_DBNAME    
+    database: process.env.SQL_DBNAME,
+    multipleStatements: process.argv[2] === 'migration' || false //Permet l'envoie de plusieurs requettes consecutives
 });
