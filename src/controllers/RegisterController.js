@@ -25,7 +25,8 @@ class RegisterController {
 
         let entity = new User();
 
-        entity.setEmail(req.body.email)
+        entity.getEmail(req.body.email)
+            .setEmail(req.body.email)
             .setPassword(req.body.password)
             .setGender(req.body.gender)
             .setFirstName(req.body.firstName)
