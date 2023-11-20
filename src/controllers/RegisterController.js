@@ -1,3 +1,5 @@
+const { render } = require('pug');
+
 class RegisterController {
     index(req, res){
         res.render('register/index');
@@ -6,21 +8,21 @@ class RegisterController {
     createUser(req, res){
         const connection = require('../../app/database_sql.js');
         connection.promise().query(
-            'INSERT INTO `users` SET `email`=?, `password`=?, `gender`=?, `first_name`=?, `last_name`=?, `phone`=?',
+            'INSERT INTO `users` SET ?',
             {
                 email : req.body.email,
                 password : req.body.password,
                 gender : req.body.gender,
-                first_name : req.body.firstname,
+                first_name : req.body.firstName,
                 last_name : req.body.lastName,
-                phone : req.body.phoneNumber
+                phone_number : req.body.phoneNumber
             }
         ).then(() => {
-    console.log(Object.values(rows[0]));
-    process.exit();
-    }).catch(()=> {
+        }).catch((error)=> {
+            console.log(error);
+        });
 
-    });
+        res.render('register/index');
+    };
 };
-
 module.exports = new RegisterController();
