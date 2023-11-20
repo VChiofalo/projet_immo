@@ -4,7 +4,8 @@ block append main
         h2 Inscription 
         form(action="/register" method="post") 
             div(class="flex column")  
-                label(for="email") Email #{error}
+                label(for="email") Email 
+                    span(class="error") #{error}
                 input(type="email", name="email" placeholder="Exemple : dupont.martin@email.fr" id="email")
             div(class="flex column")      
                 label(for="password") Mot de passe

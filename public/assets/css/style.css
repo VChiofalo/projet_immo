@@ -33,6 +33,10 @@ ul{
     list-style: none;
 }
 
+.error{
+    color: red;
+}
+
 /* HEADER */
 
 header{
