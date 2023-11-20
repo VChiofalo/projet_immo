@@ -25,8 +25,7 @@ class RegisterController {
 
         let entity = new User();
 
-        entity.getEmail(req.body.email)
-            .setEmail(req.body.email)
+        entity.setEmail(req.body.email)
             .setPassword(req.body.password)
             .setGender(req.body.gender)
             .setFirstName(req.body.firstName)
@@ -34,6 +33,7 @@ class RegisterController {
             .setPhoneNumber(req.body.phoneNumber);
 
         const UserRepo = new UsersRepository();
+        console.log(UserRepo.emailValidation(req.body.email));
         UserRepo.add(entity);
 
         res.render('register/index');
