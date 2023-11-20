@@ -26,14 +26,16 @@ class RegisterController {
                 let hash = bcrypt.hashSync(entity.getPassword(), bcrypt.genSaltSync(10));
                 entity.setPassword(hash);
 
-                UserRepo.add(entity);
+                UserRepo.add(entity).then(() => {
+                    MailRegister(entity);
+                })
 
                 // Ajoute une notification si l'action s'est déroulé comme prévu
                 req.flash('notify', 'Votre compte a bien été créé.');
                 // Redirige l'utilisateur si l'action s'est déroué comme prévu
                 res.redirect('/');
             }
-            })
+        })
     };
 };
 module.exports = new RegisterController();
