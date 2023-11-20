@@ -14,15 +14,15 @@ block append main
                 label(for="gender") Selectionnez votre genre
                 select(name="gender" id="gender")
                     option(value="") Veillez choisir une option 
-                    option(value="male") Homme 
-                    option(value="female") Femme 
-                    option(value="non-binary") Non-binaire
-            div(class="flex column")  
-                label(for="lastName") Nom
-                input(type="text", name="lastName" placeholder="Exemple : Dupont" id="lastName")
+                    option(value="1") Homme 
+                    option(value="2") Femme 
+                    option(value="3") Non-binaire
             div(class="flex column")  
                 label(for="firstName") Prénom 
                 input(type="text", name="firstName" placeholder="Exemple : Martin" id="firstName")
+            div(class="flex column")  
+                label(for="lastName") Nom
+                input(type="text", name="lastName" placeholder="Exemple : Dupont" id="lastName")
             div(class="flex column")
                 label(for="phoneNumber") N° de téléphone
                 input(type="tel", name="phoneNumber" placeholder="0600000000" id="phoneNumber")

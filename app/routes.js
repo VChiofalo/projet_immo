@@ -8,4 +8,9 @@ module.exports= (app /* ajout du param app */ ) => {
         let registerController = require('../src/controllers/RegisterController.js');
         registerController.index(req, res);
     });
+
+    app.post('/register', (req, res) => {
+        let registerController = require('../src/controllers/RegisterController.js');
+        registerController.createUser(req, res);
+    });
 };
