@@ -7,6 +7,6 @@ module.exports = class UserRepository {
     }
 
     emailValidation(email){
-        connection.promise().query('SELECT `email` FROM `users` WHERE `email` = ?' , email).then(()=>{}).catch((error)=> { console.log(error); });
+        return connection.promise().query('SELECT `email` FROM `users` WHERE `email` = ?' , email).then(()=>{}).catch((error)=> { console.log(error); });
     }
 }
