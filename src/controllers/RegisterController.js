@@ -12,7 +12,7 @@ class RegisterController {
         let entity = new User();
 
         entity.setEmail(req.body.email)
-            .setPassword(bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))) // hash le mdp
+            .setPassword(req.body.password) // hash le mdp
             .setGender(req.body.gender)
             .setFirstName(req.body.firstName)
             .setLastName(req.body.lastName)
@@ -24,9 +24,15 @@ class RegisterController {
             if (emailValidation) {
                 res.render('register/index', {error: '(Attention : l\'adresse email existe déjà !)'})
             } else{
+                let hash = bcrypt.hashSync(entity.getPassword(), bcrypt.genSaltSync(10));
+                entity.setPassword(hash);
+
                 UserRepo.add(entity);
-        
-                res.render('home/index'); 
+
+                // Ajoute une notification si l'action s'est déroulé comme prévu
+                req.flash('notify', 'Votre compte a bien été créé.');
+                // Redirige l'utilisateur si l'action s'est déroué comme prévu
+                res.redirect('/');
             }
             })
     };
