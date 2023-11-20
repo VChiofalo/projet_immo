@@ -1,4 +1,4 @@
-const User = require('../entity/Users.js');
+const User = require('../entity/User.js');
 const UsersRepository = require('../repository/UserRepository.js');
 
 class RegisterController {
