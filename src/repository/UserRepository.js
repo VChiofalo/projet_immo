@@ -5,7 +5,7 @@ module.exports = class UserRepository {
     }
 
     async emailValidation(email){
-        return await connection.promise().query('SELECT `id` FROM `users` WHERE ?' , {email}).then(( result) => {
+        return await connection.promise().query('SELECT `id` FROM `users` WHERE ?' , {email}).then((result) => {
             return (result[0].length > 0);
         })
     }

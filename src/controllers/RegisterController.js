@@ -1,5 +1,6 @@
 const User = require('../entity/User.js');
 const UsersRepository = require('../repository/UserRepository.js');
+const bcrypt = require('bcryptjs');
 
 class RegisterController {
     index(req, res){
@@ -11,7 +12,7 @@ class RegisterController {
         let entity = new User();
 
         entity.setEmail(req.body.email)
-            .setPassword(req.body.password)
+            .setPassword(bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)))
             .setGender(req.body.gender)
             .setFirstName(req.body.firstName)
             .setLastName(req.body.lastName)
