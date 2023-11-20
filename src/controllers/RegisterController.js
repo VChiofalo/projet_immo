@@ -1,4 +1,5 @@
-const { render } = require('pug');
+const User = require('../entity/Users.js');
+const UsersRepository = require('../repository/UserRepository.js');
 
 class RegisterController {
     index(req, res){
@@ -6,7 +7,7 @@ class RegisterController {
     };
 
     createUser(req, res){
-        const connection = require('../../app/database_sql.js');
+        /* const connection = require('../../app/database_sql.js');
         connection.promise().query(
             'INSERT INTO `users` SET ?',
             {
@@ -20,7 +21,19 @@ class RegisterController {
         ).then(() => {
         }).catch((error)=> {
             console.log(error);
-        });
+        }); */
+
+        let entity = new User();
+
+        entity.setEmail(req.body.email)
+            .setPassword(req.body.password)
+            .setGender(req.body.gender)
+            .setFirstName(req.body.firstName)
+            .setLastName(req.body.lastName)
+            .setPhoneNumber(req.body.phoneNumber);
+
+        const UserRepo = new UsersRepository();
+        UserRepo.add(entity);
 
         res.render('register/index');
     };
