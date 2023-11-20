@@ -1,7 +1,6 @@
 const User = require('../entity/User.js');
 const UsersRepository = require('../repository/UserRepository.js');
 const bcrypt = require('bcryptjs'); // Nécessaire pour le hashage de mdp
-
 class RegisterController {
     index(req, res){
         res.render('register/index');
