@@ -7,21 +7,6 @@ class RegisterController {
     };
 
     createUser(req, res){
-        /* const connection = require('../../app/database_sql.js');
-        connection.promise().query(
-            'INSERT INTO `users` SET ?',
-            {
-                email : req.body.email,
-                password : req.body.password,
-                gender : req.body.gender,
-                first_name : req.body.firstName,
-                last_name : req.body.lastName,
-                phone_number : req.body.phoneNumber
-            }
-        ).then(() => {
-        }).catch((error)=> {
-            console.log(error);
-        }); */
 
         let entity = new User();
 
@@ -33,10 +18,15 @@ class RegisterController {
             .setPhoneNumber(req.body.phoneNumber);
 
         const UserRepo = new UsersRepository();
-        console.log(UserRepo.emailValidation(req.body.email));
-        UserRepo.add(entity);
-
-        res.render('register/index');
+        UserRepo.emailValidation(entity.getEmail()).then(emailValidation => {
+            if (emailValidation) {
+                res.render('register/index', {error: '(Attention : l\'adresse email existe déjà !)'})
+            } else{
+                UserRepo.add(entity);
+        
+                res.render('home/index'); 
+            }
+            })
     };
 };
 module.exports = new RegisterController();

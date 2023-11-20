@@ -1,16 +1,12 @@
 const connection = require('../../app/database_sql.js');
 module.exports = class UserRepository {
-    add(user){
-        /* let emailCheck = connection.promise().query('SELECT `email` FROM `users` WHERE `email` = ?' , user.email).then(()=>{}).catch((error)=> { console.log(error); });
-        console.log(emailCheck); */
-        connection.promise().query('INSERT INTO `users` SET ?', user).then(()=>{}).catch((error)=> { console.log(error); })
+    async add(user){
+        await connection.promise().query('INSERT INTO `users` SET ?', user);
     }
 
-    emailValidation(email){
-        return connection.promise().query('SELECT `email` FROM `users` WHERE `email` = ?' , email).then((err, results, fields)=>{
-            console.log(err);
-            console.log(results);
-            console.log(fields);
-        }).catch((error)=> { console.log(error); });
+    async emailValidation(email){
+        return await connection.promise().query('SELECT `id` FROM `users` WHERE ?' , {email}).then(( result) => {
+            return (result[0].length > 0);
+        })
     }
 }
