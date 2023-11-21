@@ -13,6 +13,27 @@ app.use(session({
   cookie: {maxAge: 3600000} 
 }))
 
+//--------------------------------------------------------------------
+//      Fausse session pour dev afin d'esquiver Browser
+//                          refresh 
+//--------------------------------------------------------------------
+/* if (process.env.APP_ENV === 'dev') {
+  app.use((req, res, next) =>{
+    req.session.user = {
+
+    };
+    next();
+  })
+} */
+
+//--------------------------------------------------------------------
+//      Partage les informations de la session
+//--------------------------------------------------------------------
+app.use((req, res, next) =>{
+  res.locals.session = req.session;
+  next();
+})
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'templates'));

@@ -1,7 +1,7 @@
 const User = require('../entity/User.js');
 const UsersRepository = require('../repository/UserRepository.js');
 const bcrypt = require('bcryptjs'); // Nécessaire pour le hashage de mdp
-const MailRegister = require('../services/MailRegister.js');
+//const MailRegister = require('../services/MailRegister.js');
 class RegisterController {
     index(req, res){
         res.render('register/index');
@@ -12,7 +12,7 @@ class RegisterController {
         let entity = new User();
 
         entity.setEmail(req.body.email)
-            .setPassword(req.body.password) // hash le mdp
+            .setPassword(bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))) // hash le mdp
             .setGender(req.body.gender)
             .setFirstName(req.body.firstName)
             .setLastName(req.body.lastName)
@@ -22,14 +22,15 @@ class RegisterController {
         // Compare les mails et renvoie vers la bonne page en fonction
         UserRepo.emailValidation(entity.getEmail()).then(emailValidation => {
             if (emailValidation) {
-                res.render('register/index', {error: '(Attention : l\'adresse email existe déjà !)'})
-            } else{
-                let hash = bcrypt.hashSync(entity.getPassword(), bcrypt.genSaltSync(10));
-                entity.setPassword(hash);
-
-                UserRepo.add(entity).then(() => {
-                    MailRegister(entity);
+                res.render('register/index', {error: '(Attention : l\'adresse email existe déjà !)',
+                    email: entity.getEmail(),
+                    gender: entity.getGender(),
+                    firstName: entity.getFirstName(),
+                    lastName: entity.getLastName(),
+                    phone: entity.getPhoneNumber()
                 })
+            } else{
+                UserRepo.add(entity)//.then(() => {MailRegister(entity);})
 
                 // Ajoute une notification si l'action s'est déroulé comme prévu
                 req.flash('notify', 'Votre compte a bien été créé.');

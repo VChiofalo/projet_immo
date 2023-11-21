@@ -1,0 +1,29 @@
+extends ../layout 
+block append content
+    section(class="container") 
+        h2 Utilisateurs
+        table 
+            thead(class="flex spaceBetween")  
+                tr
+                    th Liste des utilisateurs
+                tr
+                    th 
+                        a(href="#") Ajouter un utilisateur 
+            tbody 
+                tr 
+                    td ID
+                    td Email 
+                    td Prénom 
+                    td Nom 
+                    td Téléphone
+                each user in allUsers 
+                    tr 
+                        td= user.id
+                        td= user.email
+                        td= user.first_name 
+                        td= user.last_name 
+                        td= user.phone_number
+                        td 
+                            a(href="#") Edit
+                        td  
+                            a(href="#") Delete                

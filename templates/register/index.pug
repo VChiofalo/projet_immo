@@ -6,7 +6,7 @@ block append main
             div(class="flex column")  
                 label(for="email") Email 
                     span(class="error") #{error}
-                input(type="email", name="email" placeholder="Exemple : dupont.martin@email.fr" id="email")
+                input(type="email", name="email" placeholder="Exemple : dupont.martin@email.fr" value=email id="email")
             div(class="flex column")      
                 label(for="password") Mot de passe
                 input(type="password", name="password" placeholder="6 caractères minimum" id="password")
@@ -20,11 +20,11 @@ block append main
                     option(value="3") Non-binaire
             div(class="flex column")  
                 label(for="firstName") Prénom 
-                input(type="text", name="firstName" placeholder="Exemple : Martin" id="firstName")
+                input(type="text", name="firstName" placeholder="Exemple : Martin" value=firstName id="firstName")
             div(class="flex column")  
                 label(for="lastName") Nom
-                input(type="text", name="lastName" placeholder="Exemple : Dupont" id="lastName")
+                input(type="text", name="lastName" placeholder="Exemple : Dupont" value=lastName id="lastName")
             div(class="flex column")
                 label(for="phoneNumber") N° de téléphone
-                input(type="tel", name="phoneNumber" placeholder="0600000000" id="phoneNumber")
+                input(type="tel", name="phoneNumber" placeholder="0600000000" value=phone id="phoneNumber")
             button(type="submit", class="flex center") S'inscrire

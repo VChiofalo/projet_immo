@@ -1,0 +1,14 @@
+extends ../layout 
+block append main 
+    div(class="container") 
+        h2 Connexion 
+        if error 
+            .alert.alert-danger #{error}
+        form(action="/authentication" method="post")
+            div(class="flex column")
+                label(for="email") Email
+                input(type="email", name="email" placeholder="Exemple : dupont.martin@email.fr" id="email" value=email)
+            div(class="flex column")
+                label(for="password") Mot de passe
+                input(type="password", name="password" id="password")
+            button(type="submit", class="flex center") Connexion

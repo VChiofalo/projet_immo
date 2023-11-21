@@ -13,4 +13,29 @@ module.exports= (app /* ajout du param app */ ) => {
         let registerController = require('../src/controllers/RegisterController.js');
         registerController.createUser(req, res);
     });
+
+    app.get('/authentication', (req, res) => {
+        let authenticationController = require('../src/controllers/AuthenticationController.js');
+        authenticationController.index(req, res);
+    });
+
+    app.post('/authentication', (req, res) => {
+        let authenticationController = require('../src/controllers/AuthenticationController.js');
+        authenticationController.login(req, res);
+    });
+
+    app.get('/logout', (req, res) => {
+        let authenticationController = require('../src/controllers/AuthenticationController.js');
+        authenticationController.logout(req, res);
+    });
+
+    app.get('/admin75', (req, res) => {
+        let dashboardController = require('../src/controllers/admin/DashboardController.js');
+        dashboardController.index(req, res);
+    });
+
+    app.get('/admin75/users', (req, res) => {
+        let dashboardController = require('../src/controllers/admin/DashboardController.js');
+        dashboardController.users(req, res);
+    });
 };
