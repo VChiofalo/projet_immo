@@ -8,3 +8,6 @@
 
 ## Démarage du serveur en mode prod
 > npm start
+
+## Migration de la base de donnée
+> npm run make:migration

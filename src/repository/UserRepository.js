@@ -22,6 +22,4 @@ module.exports = class UserRepository {
             return results[0];
         });
     }
-
-
 }

@@ -36,7 +36,7 @@ class AuthenticationController {
     logout(req, res){
         req.session.user = null;
         req.flash('notify', 'Vous êtes déconnecté');
-        res.redirect('/authentication');
+        res.redirect('/');
     }
 }
 module.exports = new AuthenticationController();
