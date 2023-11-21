@@ -35,7 +35,7 @@ module.exports= (app /* ajout du param app */ ) => {
     });
 
     app.get('/admin75/users', (req, res) => {
-        let dashboardController = require('../src/controllers/admin/DashboardController.js');
-        dashboardController.users(req, res);
+        let userCrudController = require('../src/controllers/admin/UserCrudController.js');
+        userCrudController.index(req, res);
     });
 };
