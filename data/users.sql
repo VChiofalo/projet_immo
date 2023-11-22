@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 17 nov. 2023 à 14:17
+-- Généré le : mer. 22 nov. 2023 à 14:19
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -30,13 +30,14 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(120) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `gender` enum('1','2','3') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '1',
-  `first_name` varchar(80) COLLATE utf8mb4_general_ci NOT NULL,
-  `last_name` varchar(80) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone_number` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `first_name` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `last_name` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `phone_number` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
