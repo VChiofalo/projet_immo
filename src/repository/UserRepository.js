@@ -30,6 +30,6 @@ module.exports = class UserRepository {
     }
 
     async updateUserById(user){
-        return await connection.promise().query('UPDATE `users` SET `email` = ?, `gender` = ?, `first_name` = 1, `last_name` = ?, `phone_number` = ? WHERE `id` = ?' , {user})
+        return await connection.promise().query('UPDATE `users` SET ? WHERE `id` = ?' , {user})
     }
 }
