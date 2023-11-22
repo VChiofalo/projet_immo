@@ -18,8 +18,8 @@ module.exports = class UserRepository {
     }
 
     async getAllUsers(){
-        return await connection.promise().query('SELECT * FROM `users`').then((results) => {
-            return results[0];
+        return await connection.promise().query('SELECT * FROM `users`').then((result) => {
+            return (result[0].length > 0 ? result[0] : null);
         });
     }
 
