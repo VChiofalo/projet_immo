@@ -6,7 +6,6 @@ block append content
             thead(class="flex spaceBetween")  
                 tr
                     th Liste des utilisateurs
-                tr
                     th 
                         a(href="#") Ajouter un utilisateur 
             tbody 
@@ -24,6 +23,6 @@ block append content
                         td= user.last_name 
                         td= user.phone_number
                         td 
-                            a(href="/admin75/user/id=" + user.id) Edit
+                            a(href="/admin75/user/update?id=" + user.id) Edit
                         td  
                             a(href="#") Delete                

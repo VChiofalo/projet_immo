@@ -15,9 +15,9 @@ block append main
                 label(for="gender") Selectionnez votre genre
                 select(name="gender" id="gender")
                     option(value="") Veillez choisir une option 
-                    option(value="1") Homme 
-                    option(value="2") Femme 
-                    option(value="3") Non-binaire
+                    option(value="1" selected=gender==1) Homme 
+                    option(value="2" selected=gender==2) Femme 
+                    option(value="3" selected=gender==3) Non-binaire
             div(class="flex column")  
                 label(for="firstName") Prénom 
                 input(type="text", name="firstName" placeholder="Exemple : Martin" value=firstName id="firstName")

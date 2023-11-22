@@ -1,0 +1,25 @@
+extends ../layout 
+block append content
+    section(class="container") 
+        h2 Edition de l'utilisateur
+        form(action="update" method="post") 
+            div(class="flex column")  
+                label(for="email") Email 
+                input(type="email", name="email" value=user.email id="email")
+            div(class="flex column")
+                label(for="gender") Selectionnez votre genre
+                select(name="gender" id="gender")
+                    option(value="") Veillez choisir une option 
+                    option(value="1" selected=user.gender==1) Homme 
+                    option(value="2" selected=user.gender==2) Femme 
+                    option(value="3" selected=user.gender==3) Non-binaire
+            div(class="flex column")  
+                label(for="firstName") Prénom 
+                input(type="text", name="firstName" placeholder="Exemple : Martin" value=user.first_name id="firstName")
+            div(class="flex column")  
+                label(for="lastName") Nom
+                input(type="text", name="lastName" placeholder="Exemple : Dupont" value=user.last_name id="lastName")
+            div(class="flex column")
+                label(for="phoneNumber") N° de téléphone
+                input(type="tel", name="phoneNumber" placeholder="0600000000" value=user.phone_number id="phoneNumber")
+            button(type="submit", class="flex center") Editer

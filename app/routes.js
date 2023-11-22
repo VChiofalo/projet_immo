@@ -38,4 +38,14 @@ module.exports= (app /* ajout du param app */ ) => {
         let userCrudController = require('../src/controllers/admin/UserCrudController.js');
         userCrudController.index(req, res);
     });
+
+    app.get('/admin75/user/update', (req, res) => {
+        let userCrudController = require('../src/controllers/admin/UserCrudController.js');
+        userCrudController.update(req, res);
+    });
+
+    app.post('/admin75/user/update', (req, res) => {
+        let userCrudController = require('../src/controllers/admin/UserCrudController.js');
+        userCrudController.updateUser(req, res);
+    });
 };

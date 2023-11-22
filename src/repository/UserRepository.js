@@ -23,9 +23,13 @@ module.exports = class UserRepository {
         });
     }
 
-    async getUserById(){
+    async getUserById(id){
         return await connection.promise().query('SELECT * FROM `users` WHERE ?' , {id}).then((result) => {
-            return (result[0].length > 0 ? result[0][0] : null);
+            return result[0][0];
         })
+    }
+
+    async updateUserById(user){
+        return await connection.promise().query('UPDATE `users` SET `email` = ?, `gender` = ?, `first_name` = 1, `last_name` = ?, `phone_number` = ? WHERE `id` = ?' , {user})
     }
 }
