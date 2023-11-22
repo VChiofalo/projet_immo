@@ -39,7 +39,7 @@ module.exports= (app /* ajout du param app */ ) => {
         userCrudController.index(req, res);
     });
 
-    app.get('/admin75/user/update/:id([0-9]+', (req, res) => {
+    app.get('/admin75/user/update/:id([0-9]+)', (req, res) => {
         let userCrudController = require('../src/controllers/admin/UserCrudController.js');
         userCrudController.update(req, res);
     });
