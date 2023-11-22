@@ -22,4 +22,10 @@ module.exports = class UserRepository {
             return results[0];
         });
     }
+
+    async getUserById(){
+        return await connection.promise().query('SELECT * FROM `users` WHERE ?' , {id}).then((result) => {
+            return (result[0].length > 0 ? result[0][0] : null);
+        })
+    }
 }
