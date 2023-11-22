@@ -26,6 +26,7 @@ class UserCrudController{
             .setPhoneNumber(req.body.phoneNumber);
 
         UserRepo.updateUserById(entity, req.params.id).then(()=>{
+            
             res.redirect('/admin75/users');
         })
     }
