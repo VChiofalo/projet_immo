@@ -44,8 +44,13 @@ module.exports= (app /* ajout du param app */ ) => {
         userCrudController.update(req, res);
     });
 
-    app.post('/admin75/user/update', (req, res) => {
+    app.post('/admin75/user/update/:id([0-9]+)', (req, res) => {
         let userCrudController = require('../src/controllers/admin/UserCrudController.js');
         userCrudController.updateUser(req, res);
+    });
+
+    app.get('/admin75/user/delete/:id([0-9]+)', (req, res) => {
+        let userCrudController = require('../src/controllers/admin/UserCrudController.js');
+        userCrudController.deleteUser(req, res);
     });
 };

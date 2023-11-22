@@ -29,7 +29,11 @@ module.exports = class UserRepository {
         })
     }
 
-    async updateUser(user, id){
+    async updateUserById(user, id){
         return await connection.promise().query('UPDATE `users` SET ? WHERE ?' , user, {id})
+    }
+
+    async deleteUserById(id){
+        return await connection.promise().query('DELETE FROM `users` WHERE ?' , {id})
     }
 }

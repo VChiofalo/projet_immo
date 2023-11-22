@@ -22,8 +22,8 @@ block append content
                             td= user.last_name 
                             td= user.phone_number
                             td 
-                                a(href="/admin75/user/update/"+user.id) Edit
+                                a(href="/admin75/user/update/" + user.id) Edit
                             td  
-                                a(href="/admin75/user/delete?id=" + user.id) Delete  
+                                a(href="/admin75/user/delete/" + user.id) Delete  
             else 
                 .alert.alert-info Aucun utilisateur              
