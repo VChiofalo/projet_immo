@@ -30,7 +30,7 @@ module.exports = class UserRepository {
     }
 
     async updateUserById(user, id){
-        return await connection.promise().query('UPDATE `users` SET ? WHERE id=?' , [user, id])
+        return await connection.promise().query('UPDATE `users` SET ? WHERE ?' , [user, {id}])
     }
 
     async deleteUserById(id){
