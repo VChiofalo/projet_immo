@@ -13,20 +13,29 @@ class UserCrudController{
         const UserRepo = new UsersRepository();
         UserRepo.getUserById(req.query.id).then(user => {
             res.render('admin/users/update', {user: user});
-            console.log(user);
         })
     }
 
     updateUser(req, res){
         const UserRepo = new UsersRepository();
         let entity = new User();
-
         entity.setEmail(req.body.email)
             .setGender(req.body.gender)
             .setFirstName(req.body.firstName)
             .setLastName(req.body.lastName)
-            .setPhoneNumber(req.body.phoneNumber);
-        UserRepo.updateUserById(entity);
+            .setPhoneNumber(req.body.phoneNumber);+
+            /* UserRepo.getUserById(req.query.id).then(user =>{
+                console.log(user);
+
+            }) */
+
+        UserRepo.updateUser(entity, req.params.id).then(()=>{
+            res.redirect('/admin75/users');
+        })
+    }
+
+    deleteUser(req, res){
+
     }
 }
 
