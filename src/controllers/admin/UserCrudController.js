@@ -12,7 +12,7 @@ class UserCrudController{
     update(req, res){
         const UserRepo = new UsersRepository();
         UserRepo.getUserById(req.params.id).then(user => {
-            res.render('admin/users/update', {user: user});
+            res.render('admin/users/update', {id: req.params.id, user: user});
         })
     }
 
@@ -25,10 +25,31 @@ class UserCrudController{
             .setLastName(req.body.lastName)
             .setPhoneNumber(req.body.phoneNumber);
 
-        UserRepo.updateUserById(entity, req.params.id).then(()=>{
-            
-            res.redirect('/admin75/users');
-        })
+        UserRepo.getUserById(req.params.id).then((user) => {
+            let promises = [];
+            if (user.email !== entity.email) {
+                promises[0] = UserRepo.emailValidation(entity.getEmail()).then(emailValidation => {
+                    if (emailValidation) return Promise.reject();
+                })
+            } 
+
+            Promise.all(promises).then(() => {
+                // Si email pas en doublon ou toujours le même
+                UserRepo.updateUserById(entity, req.params.id).then(() => {
+                    req.flash("notify","L'utilisateur a bien été modifié");
+                    res.redirect("/admin75/users")
+                });
+            }).catch(() => {
+                res.render(
+                    'admin/users/update', 
+                    {error: "Un autre utilisateur a déjà cet email",
+                    id:req.params.id,
+                    user: entity}
+                );
+                return;
+            });
+
+        });
     }
 
     deleteUser(req, res){

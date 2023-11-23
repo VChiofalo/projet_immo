@@ -53,4 +53,14 @@ module.exports= (app /* ajout du param app */ ) => {
         let userCrudController = require('../src/controllers/admin/UserCrudController.js');
         userCrudController.deleteUser(req, res);
     });
+
+    app.get('/admin75/realties', (req, res) => {
+        let realtiesCrudController = require('../src/controllers/admin/RealtiesCrudController.js');
+        realtiesCrudController.index(req, res);
+    });
+
+    app.get('/admin75/realty/add', (req, res) => {
+        let realtiesCrudController = require('../src/controllers/admin/RealtiesCrudController.js');
+        realtiesCrudController.addRealty(req, res);
+    });
 };

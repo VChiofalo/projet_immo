@@ -1,0 +1,81 @@
+extends ../layout 
+block append content
+    section(class="container") 
+        h2 Edition de l'utilisateur 
+        if error 
+            .alert.alert-danger #{error}
+        form(action="/admin75/realties/add", method="post") 
+            h3 Adresse du bien
+            .flex.column
+                label(for="vendorName") Nom du vendeur
+                input(type="text", name="vendorName" placeholder="nom du vendeur" value=userId id="vendorName")
+            .flex.column
+                label(for="address1") Adresse 
+                input(type="text", name="address1" placeholder="Adresse" value=address1 id="address1")
+                input(type="text", name="address2" placeholder="suite adresse (facultatif)" value=address2 id="address2")
+            .flex.column 
+                label(for="city") Ville 
+                input(type="text", name="city" placeholder="Ville" value=city id="city")
+            .flex.column 
+                label(for="zipcode") Code postal
+                input(type="text", name="zipcode" placeholder="code postal" value=zipcode id="zipcode")
+            .flex.column 
+                label(for="realtyInfo") Informations complémentaires 
+                textarea(id="realtyInfo", name="realtyInfo", cols="30", rows="10", placeholder="Distances des tranports en commun, commerces de proximités, etc..", value=realtyInfo) 
+            
+            h3 Informations du bien 
+            .flex.column 
+                label(for="type") Type de bien 
+                select(name="type" id="type") 
+                    option(value="") Selectionnez un type de bien
+                    option(value="1" selected=type==1) Maison 
+                    option(value="2" selected=type==2) Appartement 
+            .flex.column
+                label(for="price") Prix net vendeur
+                input(type="text", name="price" placeholder="Prix net vendeur" value=price id="price")
+            .flex.column 
+                label(for="area") Surface (m²)
+                input(type="text", name="area" placeholder="Surface en m²" value=area id="area")
+            .flex.column 
+                label(for="room") Pièces
+                input(type="text", name="room" placeholder="Nombre de pièces" value=area id="room")
+            .flex.column 
+                label(for="sold") En vente 
+                select(name="sold" id="sold") 
+                    option(value="") Le bien est-il en vente ?
+                    option(value="true" selected=sold=="true") Oui 
+                    option(value="false" selected=sold=="false") Non 
+            .flex.column 
+                label(for="online") En ligne
+                select(name="online" id="online") 
+                    option(value="") Le bien est-il en ligne ?
+                    option(value="true" selected=online=="true") Oui 
+                    option(value="false" selected=online=="false") Non
+            .flex.columm 
+                input(type="file" accept="image/png, image/jpeg") 
+
+            h3 Contact du bien 
+            .flex.column 
+                label(for="civility") 
+                select(name="civility" id="civility") 
+                    option(value="") Veillez choisir une option
+                    option(value="1" selected=civility==1) Monsieur
+                    option(value="2" selected=civility==2) Madame
+            .flex.column 
+                label(for="contactFirstName") Prénom 
+                input(type="text", name="contactFirstName" placeholder="contactFirstName" value=contactFirstName id="contactFirstName")
+            .flex.column 
+                label(for="contactLastName") Nom 
+                input(type="text", name="contactLastName" placeholder="contactLastName" value=contactLastName id="contactLastName")
+            .flex.column 
+                label(for="contactEmail") Email
+                input(type="text", name="contactEmail" placeholder="contactEmail" value=contactEmail id="contactEmail")
+            .flex.column 
+                label(for="contactPhoneNumber") Téléphone
+                input(type="text", name="contactPhoneNumber" placeholder="contactPhoneNumber" value=contactPhoneNumber id="contactPhoneNumber")
+            .flex.column 
+                label(for="contactMobileNumber") Mobile
+                input(type="text", name="contactMobileNumber" placeholder="contactMobileNumber" value=contactMobileNumber id="contactMobileNumber")
+            .flex.column 
+                label(for="contactInfo") Informations complémentaires 
+                textarea(id="contactInfo", name="contactInfo", cols="30", rows="10", placeholder="Disponibilité, etc..", value=contactInfo) 

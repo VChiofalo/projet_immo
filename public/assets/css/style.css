@@ -39,10 +39,10 @@ ul{
 
 /* HEADER */
 
-header{
+/* header{
     position: fixed;
     width: 100%;
-}
+} */
 
 #logo img{
     width: 120px;
@@ -65,7 +65,6 @@ nav ul a{
 
 nav ul a:hover{
     color: white;
-    
 }
 
 /* MAIN */

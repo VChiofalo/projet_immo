@@ -36,13 +36,25 @@ html(lang="fr")
                                 i.fa-solid.fa-user
                                 div Utilisateurs
                         li
-                            a(href="") 
+                            a(href="/admin75/realties" class="flex spaceAround") 
+                                i.fa-solid.fa-house-chimney-user 
+                                div Biens immobiliers
                         li
                             a(href="") 
                         li
                             a(href="") 
                         li
                             a(href="") 
+      
+            .container
+                - var messages = getMessages()
+                if messages.notify
+                    each msg in messages.notify
+                        .alert.alert-info= msg
+                if messages.error
+                    each msg in messages.error
+                        .alert.alert-danger= msg
+                        
                 block content
         block footer
         script(src=process.env.BROWSER_REFRESH_URL)

@@ -1,0 +1,50 @@
+extends ../layout 
+block append content
+    section(class="container") 
+        h2 Biens immobilliers
+        a(href="/admin75/realty/add") Ajouter un bien
+        table 
+            if allUsers && allUsers.length > 0
+                thead
+                    tr
+                        th ID
+                        th ID Utilisateur
+                        th ID Contact
+                        th Adresse 1 
+                        th Adresse 2 
+                        th Ville 
+                        th CP 
+                        th Info 
+                        th Type 
+                        th Surfface 
+                        th Pièces 
+                        th Prix 
+                        th En vente 
+                        th En ligne 
+                        th Créé le
+                        th 
+                        th
+                tbody
+                    each realty in realties 
+                        tr 
+                            td= realty.id
+                            td= realty.user_id
+                            td= realty.contact_id 
+                            td= realty.address_1
+                            td= realty.address_2
+                            td= realty.city
+                            td= realty.zipcode
+                            td= realty.info_address
+                            td= realty.type
+                            td= realty.area
+                            td= realty.room
+                            td= realty.price
+                            td= realty.sold
+                            td= realty.online
+                            td= realty.created_date
+                            td 
+                                a(href="/admin75/realty/update/" + realty.id) Edit
+                            td  
+                                a(href="/admin75/realty/delete/" + realty.id) Delete  
+            else 
+                .alert.alert-info Aucun biens immobiliers 
