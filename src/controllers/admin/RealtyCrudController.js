@@ -50,7 +50,6 @@ class RealtyCrudController{
                 })
         })
     }
-
 }
 
 module.exports = new RealtyCrudController();
