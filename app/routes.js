@@ -55,12 +55,17 @@ module.exports= (app /* ajout du param app */ ) => {
     });
 
     app.get('/admin75/realties', (req, res) => {
-        let realtiesCrudController = require('../src/controllers/admin/RealtiesCrudController.js');
-        realtiesCrudController.index(req, res);
+        let realtyCrudController = require('../src/controllers/admin/RealtyCrudController.js');
+        realtyCrudController.index(req, res);
     });
 
     app.get('/admin75/realty/add', (req, res) => {
-        let realtiesCrudController = require('../src/controllers/admin/RealtiesCrudController.js');
-        realtiesCrudController.addRealty(req, res);
+        let realtyCrudController = require('../src/controllers/admin/RealtyCrudController.js');
+        realtyCrudController.addRealty(req, res);
+    });
+    
+    app.post('/admin75/realty/add', (req, res) => {
+        let realtyCrudController = require('../src/controllers/admin/RealtyCrudController.js');
+        realtyCrudController.addRealtyProcess(req, res);
     });
 };

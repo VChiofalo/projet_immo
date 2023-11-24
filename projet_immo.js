@@ -17,14 +17,19 @@ app.use(session({
 //      Fausse session pour dev afin d'esquiver Browser
 //                          refresh 
 //--------------------------------------------------------------------
-/* if (process.env.APP_ENV === 'dev') {
+if (process.env.APP_ENV === 'dev') {
   app.use((req, res, next) =>{
     req.session.user = {
-
+      id: 15,
+      email: 'v.chiofalo@gmail.com',
+      gender:3,
+      firstName: 'Vincent',
+      lastName: 'Chiofalo',
+      phone: '0767676767'
     };
     next();
   })
-} */
+}
 
 //--------------------------------------------------------------------
 //      Partage les informations de la session

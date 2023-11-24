@@ -4,11 +4,11 @@ block append content
         h2 Edition de l'utilisateur 
         if error 
             .alert.alert-danger #{error}
-        form(action="/admin75/realties/add", method="post") 
+        form(action="/admin75/realty/add", method="post") 
             h3 Adresse du bien
             .flex.column
                 label(for="vendorName") Nom du vendeur
-                input(type="text", name="vendorName" placeholder="nom du vendeur" value=userId id="vendorName")
+                input(type="text", name="vendorName" placeholder="nom du vendeur" value=session.user.lastName id="vendorName")
             .flex.column
                 label(for="address1") Adresse 
                 input(type="text", name="address1" placeholder="Adresse" value=address1 id="address1")
@@ -20,8 +20,8 @@ block append content
                 label(for="zipcode") Code postal
                 input(type="text", name="zipcode" placeholder="code postal" value=zipcode id="zipcode")
             .flex.column 
-                label(for="realtyInfo") Informations complémentaires 
-                textarea(id="realtyInfo", name="realtyInfo", cols="30", rows="10", placeholder="Distances des tranports en commun, commerces de proximités, etc..", value=realtyInfo) 
+                label(for="infoAddress") Informations complémentaires 
+                textarea(id="infoAddress", name="infoAddress", cols="30", rows="10", placeholder="Distances des tranports en commun, commerces de proximités, etc..", value=infoAddress) 
             
             h3 Informations du bien 
             .flex.column 
@@ -51,7 +51,7 @@ block append content
                     option(value="") Le bien est-il en ligne ?
                     option(value="true" selected=online=="true") Oui 
                     option(value="false" selected=online=="false") Non
-            .flex.columm 
+            //.flex.columm 
                 input(type="file" accept="image/png, image/jpeg") 
 
             h3 Contact du bien 
@@ -79,3 +79,5 @@ block append content
             .flex.column 
                 label(for="contactInfo") Informations complémentaires 
                 textarea(id="contactInfo", name="contactInfo", cols="30", rows="10", placeholder="Disponibilité, etc..", value=contactInfo) 
+            .flex.column
+                button(type="submit") Ajouter

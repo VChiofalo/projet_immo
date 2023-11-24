@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 23 nov. 2023 à 11:43
+-- Généré le : jeu. 23 nov. 2023 à 11:56
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `realties` (
   `area` int NOT NULL DEFAULT '0',
   `room` int NOT NULL DEFAULT '0',
   `price` int NOT NULL,
-  `sold` tinyint(1) NOT NULL,
-  `online` tinyint(1) NOT NULL,
+  `sold` tinyint(1) NOT NULL DEFAULT '0',
+  `online` tinyint(1) NOT NULL DEFAULT '0',
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
