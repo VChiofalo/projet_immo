@@ -68,4 +68,19 @@ module.exports= (app /* ajout du param app */ ) => {
         let realtyCrudController = require('../src/controllers/admin/RealtyCrudController.js');
         realtyCrudController.addRealtyProcess(req, res);
     });
+
+    app.get('/admin75/realty/delete/:id([0-9]+)', (req, res) => {
+        let realtyCrudController = require('../src/controllers/admin/RealtyCrudController.js');
+        realtyCrudController.deleteRealty(req, res);
+    });
+
+    app.get('/admin75/realty/update/:id([0-9]+)', (req, res) => {
+        let realtyCrudController = require('../src/controllers/admin/RealtyCrudController.js');
+        realtyCrudController.updateRealty(req, res);
+    });
+
+    app.post('/admin75/realty/update/:id([0-9]+)', (req, res) => {
+        let realtyCrudController = require('../src/controllers/admin/RealtyCrudController.js');
+        realtyCrudController.updateRealtyProcess(req, res);
+    });
 };

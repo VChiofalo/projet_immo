@@ -39,7 +39,7 @@ app.use((req, res, next) =>{
   next();
 })
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'templates'));
 app.set('view engine', 'pug');

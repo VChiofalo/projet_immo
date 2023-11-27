@@ -6,8 +6,21 @@ module.exports = class RealtyRepository {
         });
     }
 
+    async getRealtyById(id){
+        return await connection.promise().query('SELECT * FROM `realties` WHERE ?' , {id}).then((result) => {
+            return result[0][0];
+        })
+    }
+
     async add(realty){
         return await connection.promise().query('INSERT INTO `realties` SET ?', realty);
     }
 
+    async deleteRealtyById(id){
+        return await connection.promise().query('DELETE FROM `realties` WHERE ?' , {id})
+    }
+
+    async updateRealtyById(realty, id){
+        return await connection.promise().query('UPDATE `realties` SET ? WHERE ?' , [realty, {id}])
+    }
 }

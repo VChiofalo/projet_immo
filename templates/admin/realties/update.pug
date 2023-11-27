@@ -1,18 +1,15 @@
 extends ../layout 
 block append content
     section(class="container") 
-        h2 Edition de l'utilisateur 
+        h2 Edition du bien
         if error 
             .alert.alert-danger #{error}
-        form(action="/admin75/realty/add", method="post") 
+        form(action="/admin75/realty/update/"+id, method="post") 
             h3 Adresse du bien
             .flex.column
-                label(for="vendorName") Nom du vendeur
-                input(type="text", name="vendorName" placeholder="nom du vendeur" value=session.user.lastName id="vendorName")
-            .flex.column
                 label(for="address1") Adresse 
-                input(type="text", name="realty[address1]" placeholder="Adresse" value=realty.address1 id="address1")
-                input(type="text", name="realty[address2]" placeholder="suite adresse (facultatif)" value=realty.address2 id="address2")
+                input(type="text", name="realty[address1]" placeholder="Adresse" value=realty.address_1 id="address1")
+                input(type="text", name="realty[address2]" placeholder="suite adresse (facultatif)" value=realty.address_2 id="address2")
             .flex.column 
                 label(for="city") Ville 
                 input(type="text", name="realty[city]" placeholder="Ville" value=realty.city id="city")
@@ -21,7 +18,7 @@ block append content
                 input(type="text", name="realty[zipcode]" placeholder="code postal" value=realty.zipcode id="zipcode")
             .flex.column 
                 label(for="infoAddress") Informations complémentaires 
-                textarea(id="infoAddress", name="realty[infoAddress]", cols="30", rows="10", placeholder="Distances des tranports en commun, commerces de proximités, etc..", value=realty.infoAddress) 
+                textarea(id="infoAddress", name="realty[infoAddress]", cols="30", rows="10", placeholder="Distances des tranports en commun, commerces de proximités, etc..", value=realty.info_address) 
             
             h3 Informations du bien 
             .flex.column 
@@ -63,21 +60,21 @@ block append content
                     option(value="2" selected=contact.civility==2) Madame
             .flex.column 
                 label(for="contactFirstName") Prénom 
-                input(type="text", name="contact[contactFirstName]" placeholder="contactFirstName" value=contact.contactFirstName id="contactFirstName")
+                input(type="text", name="contact[contactFirstName]" placeholder="contactFirstName" value=contact.first_name id="contactFirstName")
             .flex.column 
                 label(for="contactLastName") Nom 
-                input(type="text", name="contact[contactLastName]" placeholder="contactLastName" value=contactLastName id="contactLastName")
+                input(type="text", name="contact[contactLastName]" placeholder="contactLastName" value=contact.last_name id="contactLastName")
             .flex.column 
                 label(for="contactEmail") Email
-                input(type="text", name="contact[contactEmail]" placeholder="contactEmail" value=contactEmail id="contactEmail")
+                input(type="text", name="contact[contactEmail]" placeholder="contactEmail" value=contact.email id="contactEmail")
             .flex.column 
                 label(for="contactPhoneNumber") Téléphone
-                input(type="text", name="contact[contactPhoneNumber]" placeholder="contactPhoneNumber" value=contactPhoneNumber id="contactPhoneNumber")
+                input(type="text", name="contact[contactPhoneNumber]" placeholder="contactPhoneNumber" value=contact.phone_number id="contactPhoneNumber")
             .flex.column 
                 label(for="contactMobileNumber") Mobile
-                input(type="text", name="contact[contactMobileNumber]" placeholder="contactMobileNumber" value=contactMobileNumber id="contactMobileNumber")
+                input(type="text", name="contact[contactMobileNumber]" placeholder="contactMobileNumber" value=contact.mobile_number id="contactMobileNumber")
             .flex.column 
                 label(for="contactInfo") Informations complémentaires 
-                textarea(id="contactInfo", name="contact[contactInfo]", cols="30", rows="10", placeholder="Disponibilité, etc..", value=contactInfo) 
+                textarea(id="contactInfo", name="contact[contactInfo]", cols="30", rows="10", placeholder="Disponibilité, etc..", value=contact.info_contact) 
             .flex.column
-                button(type="submit") Ajouter
+                button(type="submit") Editer
